@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Join CnC Circle | Concepts & Clarity AI Study Portal</title>
+  <meta name="description" content="Register for CnC Circle to access textbook-grounded AI question generators, step-by-step solved physics, chemistry & math solutions, and custom test makers." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cnccircle.com/register" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <div class="auth-wrapper">
+    <!-- Auth Left Sidebar -->
+    <div class="auth-sidebar">
+      <div>
+        <a href="index.html" class="brand-logo" style="margin-bottom:3rem;">
+          <div class="logo-badge">CnC</div>
+          <div class="brand-text-container">
+            <span class="brand-title">CnC <span style="color:var(--primary);">Circle</span></span>
+            <span class="brand-tagline">Concepts & Clarity AI</span>
+          </div>
+        </a>
+
+        <h2 style="font-size:2.8rem; margin-bottom:1.5rem; line-height:1.2;">
+          Join 50,000+ Students & Educators in the CnC Circle
+        </h2>
+        <p style="color:var(--text-muted); font-size:1.1rem; line-height:1.6; margin-bottom:2rem;">
+          Unlock textbook-grounded AI question generators, step-by-step solutions, key formula sheets, concept visualizers, and printable PDF test papers.
+        </p>
+      </div>
+
+      <div style="background:var(--bg-card); border:1px solid var(--bg-card-border); padding:1.5rem; border-radius:var(--radius-lg); backdrop-filter:var(--glass-blur);">
+        <p style="font-style:italic; color:var(--text-main); margin-bottom:1rem; font-size:0.95rem;">
+          "CnC Circle transformed my physics problem-solving. Step-by-step derivations with diagram previews gave me total confidence for my Class 12 Boards!"
+        </p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--secondary)); display:flex; align-items:center; justify-content:center; font-weight:700;">
+            CB
+          </div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem;">Class 12 Board Student</div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Physics & Math Top Scorer</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="color:var(--text-subtle); font-size:0.85rem;">
+        © 2026 CnC Circle. 100% Privacy Preserved.
+      </div>
+    </div>
+
+    <!-- Auth Right Form Container (100% PII-Free with Sign Up & Login Tabs) -->
+    <div class="auth-form-container">
+      <!-- Auth Switcher Tabs & Theme Toggle -->
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; margin-bottom:1.75rem;">
+        <div class="auth-tab-nav" style="flex:1; margin-bottom:0;">
+          <button type="button" class="auth-tab-btn active" id="tabSignupBtn">✨ Create Account</button>
+          <button type="button" class="auth-tab-btn" id="tabLoginBtn">🔐 Log In</button>
+        </div>
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">☀️</button>
+      </div>
+
+      <!-- Auth Alert Banner for Errors & Success -->
+      <div class="auth-alert" id="authAlert"></div>
+
+      <!-- SIGN UP FORM -->
+      <div id="signupFormContainer">
+        <div style="margin-bottom:1.5rem;">
+          <h1 style="font-size:2rem; margin-bottom:0.35rem;" id="authHeaderTitle">Join CnC Circle</h1>
+          <p style="color:var(--text-muted); font-size:0.95rem;" id="authHeaderSubtitle">
+            Create your account to start textbook-grounded AI practice.
+          </p>
+        </div>
+
+        <form id="registerForm">
+          <!-- Role Selector -->
+          <label style="font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); display:block; margin-bottom:0.5rem;">
+            Select Your Primary Role:
+          </label>
+          <div class="role-selector-grid">
+            <div class="role-card active" data-role="Student">
+              <span style="font-size:1.5rem; display:block; margin-bottom:0.2rem;">🎓</span>
+              <span style="font-weight:700; font-size:0.9rem;">Student</span>
+            </div>
+            <div class="role-card" data-role="Educator">
+              <span style="font-size:1.5rem; display:block; margin-bottom:0.2rem;">👨‍🏫</span>
+              <span style="font-weight:700; font-size:0.9rem;">Educator / Tutor</span>
+            </div>
+            <div class="role-card" data-role="Parent">
+              <span style="font-size:1.5rem; display:block; margin-bottom:0.2rem;">👨‍👩‍👧</span>
+              <span style="font-weight:700; font-size:0.9rem;">Parent</span>
+            </div>
+            <div class="role-card" data-role="Admin">
+              <span style="font-size:1.5rem; display:block; margin-bottom:0.2rem;">🏫</span>
+              <span style="font-weight:700; font-size:0.9rem;">Institution Admin</span>
+            </div>
+          </div>
+
+          <!-- Display Handle / Username (PII-Free) -->
+          <div style="margin-bottom:1.25rem;">
+            <label for="regUsername" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Display Name / Handle *
+            </label>
+            <input type="text" id="regUsername" class="form-input" placeholder="e.g. StudentAspirant" required />
+          </div>
+
+          <!-- Email Address -->
+          <div style="margin-bottom:1.25rem;">
+            <label for="regEmail" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Email Address *
+            </label>
+            <input type="email" id="regEmail" class="form-input" placeholder="student@example.com" required />
+          </div>
+
+          <!-- Class & Board Selection -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem;" id="classGroup">
+            <div>
+              <label for="regClass" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+                Target Class
+              </label>
+              <select id="regClass" class="form-select">
+                <option value="12">Class 12</option>
+                <option value="11">Class 11</option>
+                <option value="10">Class 10</option>
+                <option value="9">Class 9</option>
+              </select>
+            </div>
+            <div>
+              <label for="regBoard" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+                Education Board
+              </label>
+              <select id="regBoard" class="form-select">
+                <option value="CBSE">CBSE Board</option>
+                <option value="ICSE">ICSE / ISC Board</option>
+                <option value="State">State Board</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div style="margin-bottom:1.25rem;">
+            <label for="regPassword" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Password *
+            </label>
+            <input type="password" id="regPassword" class="form-input" placeholder="Create strong password" required />
+            <div class="password-meter">
+              <div class="password-meter-fill" id="passwordMeterFill"></div>
+            </div>
+            <div id="passwordMeterText" style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">Enter at least 6 characters</div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div style="margin-bottom:1.5rem;">
+            <label for="regConfirmPassword" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Confirm Password *
+            </label>
+            <input type="password" id="regConfirmPassword" class="form-input" placeholder="Re-enter password" required />
+          </div>
+
+          <!-- Terms Agreement -->
+          <div style="margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; color:var(--text-muted);">
+            <input type="checkbox" id="termsCheck" required style="accent-color:var(--primary);" />
+            <label for="termsCheck">
+              I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submitRegisterBtn">
+            Create Account & Enter Portal →
+          </button>
+        </form>
+      </div>
+
+      <!-- LOG IN FORM (Initially Hidden) -->
+      <div id="loginFormContainer" style="display:none;">
+        <div style="margin-bottom:1.5rem;">
+          <h1 style="font-size:2rem; margin-bottom:0.35rem;">Welcome Back</h1>
+          <p style="color:var(--text-muted); font-size:0.95rem;">
+            Sign in to access your grounded study dashboard.
+          </p>
+        </div>
+
+        <form id="loginForm">
+          <!-- Login Identifier (Email or Username) -->
+          <div style="margin-bottom:1.25rem;">
+            <label for="loginEmail" style="font-size:0.85rem; font-weight:600; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Email or Username Handle *
+            </label>
+            <input type="text" id="loginEmail" class="form-input" placeholder="Enter your email or handle" required />
+          </div>
+
+          <!-- Password -->
+          <div style="margin-bottom:1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">
+              <label for="loginPassword" style="font-size:0.85rem; font-weight:600; color:var(--text-main);">
+                Password *
+              </label>
+              <a href="#" style="font-size:0.8rem; color:var(--primary); text-decoration:none;">Forgot Password?</a>
+            </div>
+            <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submitLoginBtn">
+            Log In to CnC Circle →
+          </button>
+        </form>
+
+        <!-- Quick 1-Click Demo Accounts for Testing -->
+        <div class="demo-account-pills">
+          <span style="font-size:0.8rem; color:var(--text-muted); width:100%; display:block; margin-bottom:0.3rem;">
+            ⚡ Quick 1-Click Role Login:
+          </span>
+          <button type="button" class="demo-account-chip" data-demo-role="Student">🎓 Student</button>
+          <button type="button" class="demo-account-chip" data-demo-role="Educator">👨‍🏫 Educator</button>
+          <button type="button" class="demo-account-chip" data-demo-role="Parent">👨‍👩‍👧 Parent</button>
+          <button type="button" class="demo-account-chip" data-demo-role="Admin">🏫 Institution Admin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); backdrop-filter:var(--glass-blur); z-index:2000; align-items:center; justify-content:center;">
+    <div style="background:var(--bg-card); border:1px solid var(--bg-card-border); border-radius:var(--radius-xl); padding:2.5rem; max-width:440px; width:90%; text-align:center; box-shadow:var(--shadow-lg);">
+      <div style="font-size:3.5rem; margin-bottom:1rem; color:var(--accent-green);">🎉</div>
+      <h3 style="font-size:1.6rem; margin-bottom:0.5rem;">Welcome to CnC Circle!</h3>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
+        Your account is activated. Redirecting to your AI study portal in <strong id="redirectCountdown" style="color:var(--primary);">5</strong> seconds...
+      </p>
+      <a href="dashboard.html" class="btn btn-primary" style="width:100%;">Go to Pro Dashboard Now →</a>
+    </div>
+  </div>
+
+  <!-- Floating Draggable AI Chat Support Launcher (Aura AI) -->
+  <div class="chat-launcher-btn" id="chatLauncherBtn" role="button" aria-label="Open Aura AI Chat Support" title="Click to chat • Drag anywhere on screen">
+    <div class="chat-launcher-drag-grip" title="Drag anywhere on screen">⋮⋮</div>
+    <div style="position:relative;">
+      <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-launcher-avatar" />
+      <div class="chat-launcher-status-dot"></div>
+    </div>
+    <div class="chat-launcher-text">
+      <div class="chat-launcher-title">Aura AI <span>✨</span></div>
+      <div class="chat-launcher-subtitle">Ask Study Doubts</div>
+    </div>
+  </div>
+
+  <!-- Draggable Chat Window Popup -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header" id="chatDragHeader" title="Drag to move chat window">
+      <div class="chat-header-info">
+        <span class="chat-drag-grip-header" title="Drag to move">⋮⋮</span>
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI Assistant" class="chat-header-avatar" />
+        <div>
+          <div class="chat-header-title">Aura AI</div>
+          <div class="chat-header-subtitle"><span class="pulse-dot" style="width:6px; height:6px;"></span> Online • CnC Assistant</div>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button class="chat-btn-icon" id="chatMinimizeBtn" title="Minimize">🗕</button>
+        <button class="chat-btn-icon" id="chatCloseBtn" title="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatMessages">
+      <div class="chat-msg bot">
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-msg-avatar" />
+        <div class="chat-bubble">
+          👋 Need help with registration or choosing between Student, Educator, or Parent plans? Ask me anything!
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Suggestion Chips -->
+    <div class="chat-suggestions">
+      <button class="chat-chip" data-query="Is student registration free?">🎓 Free Student Plan</button>
+      <button class="chat-chip" data-query="How does educator test generator work?">👨‍🏫 Educator Features</button>
+      <button class="chat-chip" data-query="Are mobile numbers required?">🔒 Privacy & PII</button>
+    </div>
+
+    <form class="chat-footer" id="chatForm">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask Aura a quick question..." autocomplete="off" />
+      <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Send Message">➤</button>
+    </form>
+  </div>
+
+  <script src="js/register.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

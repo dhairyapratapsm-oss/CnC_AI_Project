@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>CnC Circle | AI-Powered Board Exam Question Bank & Concept Portal</title>
+  <meta name="title" content="CnC Circle | AI-Powered Board Exam Question Bank & Concept Portal" />
+  <meta name="description" content="Empowering 50,000+ students and educators with textbook-grounded AI Question Generators, step-by-step solved physics, chemistry, and maths solutions, key formula sheets, and concept visualizers." />
+  <meta name="keywords" content="CnC Circle, CnC AI, AI Question Generator, CBSE Class 12 Physics, ICSE Maths Solved Examples, Question Bank, Board Exam Prep" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cnccircle.com/" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cnccircle.com/" />
+  <meta property="og:title" content="CnC Circle | AI-Powered Board Exam Question Bank" />
+  <meta property="og:description" content="Textbook-grounded AI Question Generator and step-by-step solved solutions for CBSE, ICSE & State Boards." />
+  <meta property="og:image" content="assets/knowledge_pipeline_3d.png" />
+
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "CnC Circle",
+    "url": "https://cnccircle.com",
+    "logo": "https://cnccircle.com/assets/knowledge_pipeline_3d.png",
+    "description": "AI-Powered Question Bank & Solved Solution Platform for Class 9-12 CBSE, ICSE, and State Boards."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation Bar with Impressive Logo Badge -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="navBrandLogo">
+        <div class="logo-badge">CnC</div>
+        <div class="brand-text-container">
+          <span class="brand-title">CnC <span style="color:var(--primary);">Circle</span></span>
+          <span class="brand-tagline">Concepts & Clarity AI</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#why-different" class="nav-link">Why CnC</a></li>
+        <li><a href="#storyboard" class="nav-link">How It Works</a></li>
+        <li><a href="#pipeline" class="nav-link">Knowledge Pipeline</a></li>
+        <li><a href="#product-demo" class="nav-link">Product Demo</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">☀️</button>
+        
+        <!-- Public Guest Action Buttons -->
+        <a href="register.html?mode=login" class="btn btn-secondary" id="navLoginBtn">Log In</a>
+        <a href="register.html?mode=signup" class="btn btn-primary" id="navRegisterBtn">Join CnC Circle →</a>
+
+        <!-- Authenticated User Profile & Logout (Displayed when logged in) -->
+        <div class="user-nav-profile" id="userNavProfile" style="display:none;">
+          <div class="user-nav-avatar" id="userAvatar">U</div>
+          <div class="user-nav-details">
+            <span class="user-nav-name" id="userDisplayName">User</span>
+            <span class="user-nav-role" id="userRoleBadge">Student</span>
+            <span style="font-size:0.72rem; color:var(--text-muted);" id="userLastLogin">Last Login: Just now</span>
+          </div>
+          <a href="dashboard.html" class="btn btn-primary btn-sm" style="padding:0.4rem 0.85rem; font-size:0.8rem;">⚡ My Pro Dashboard</a>
+          <button class="btn-logout" id="navLogoutBtn" title="Log Out of CnC Circle">
+            <span>🚪</span> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Live AI Generator Demo -->
+  <section class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <!-- Role-Specific Active Portal Banner -->
+      <div id="rolePortalBannerContainer"></div>
+
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span id="heroBadgeText">⚡ Concepts & Clarity Engine v3.0 Live</span>
+          </div>
+          <h1 class="hero-title">
+            Master Board Exams with <span class="gradient-text">Grounded AI</span>
+          </h1>
+          <p class="hero-subtitle" id="heroSubtitleText">
+            CnC Circle connects textbook knowledge with AI precision—generating verified practice questions, step-by-step solved equations, key formula cheat-sheets, and concept visualizers for CBSE, ICSE & State Boards (Class 9-12).
+          </p>
+          <div class="hero-ctas">
+            <a href="#demo" class="btn btn-primary btn-lg" id="heroStartBtn">Start Live AI Practice →</a>
+            <a href="#product-demo" class="btn btn-secondary btn-lg" id="heroDemoBtn">Explore Product Demo</a>
+          </div>
+          <div style="display:flex; align-items:center; gap:1.5rem; color:var(--text-muted); font-size:0.9rem;">
+            <span>✓ 100% NCERT / Board Grounded</span>
+            <span>✓ Instant Step Solutions</span>
+          </div>
+        </div>
+
+        <!-- Live Interactive AI Playground Widget -->
+        <div class="playground-card" id="demo">
+          <div class="playground-header">
+            <div class="demo-title">
+              <span>✨ Live CnC Question Synthesizer</span>
+            </div>
+            <div class="live-indicator">
+              <div class="pulse-dot"></div> Live Engine
+            </div>
+          </div>
+
+          <div class="demo-controls">
+            <div>
+              <label style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Subject</label>
+              <select class="form-select" id="demoSubject">
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="mathematics">Mathematics</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Class Level</label>
+              <select class="form-select" id="demoClass">
+                <option value="12">Class 12</option>
+                <option value="11">Class 11</option>
+                <option value="10">Class 10</option>
+                <option value="9">Class 9</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.25rem;">
+            <label style="font-size:0.8rem; font-weight:600; color:var(--text-muted); display:block; margin-bottom:0.3rem;">Select Chapter / Topic</label>
+            <select class="form-select" id="demoChapter">
+              <option value="Electric Charges & Fields">Electric Charges & Fields</option>
+            </select>
+          </div>
+
+          <button class="btn btn-glow" id="generateDemoBtn" style="width:100%; margin-bottom:1.25rem;">
+            ⚡ Synthesize Board Question & Step Solution
+          </button>
+
+          <div class="demo-output" id="demoOutputBox">
+            <div style="text-align:center; padding:2rem 0; color:var(--text-muted);">
+              Select any Subject & Chapter above, then click <strong>"Synthesize Board Question"</strong> to see grounded solutions!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Statistics Section -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <h3 class="gradient-text counter" data-target="50000" data-suffix="+">0</h3>
+        <p>Board Questions & Solutions Solved</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="gradient-text counter" data-target="99" data-suffix=".6%">0</h3>
+        <p>NCERT Syllabus Accuracy</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="gradient-text counter" data-target="150" data-suffix="+">0</h3>
+        <p>Partner Schools & Coaching Institutes</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="gradient-text-gold counter" data-target="4.9" data-suffix="/5">0</h3>
+        <p>Student & Educator Rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: "Why CnC Circle Feels Different" -->
+  <section class="comparison-section" id="why-different">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Reinventing EdTech</div>
+        <h2 class="section-title">Why CnC Circle Feels Different</h2>
+        <p class="section-subtitle">Most platforms offer generic flashcards or unverified answers. CnC Circle combines deep textbook grounding with step-by-step clarity.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-card-old interactive-card">
+          <h3 style="color:#f87171; margin-bottom:1rem; font-size:1.4rem;">❌ Traditional Rote Learning</h3>
+          <ul style="list-style:none; line-height:2.2; color:var(--text-muted);">
+            <li>❌ Generic web answers without textbook grounding</li>
+            <li>❌ Jump straight to final answers without step logic</li>
+            <li>❌ Static text explanations with no visual breakdown</li>
+            <li>❌ 10+ hours spent manually typing test papers</li>
+            <li>❌ No instant feedback on common student mistakes</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card-cnc interactive-card">
+          <div class="cnc-highlight-badge">
+            ✨ The CnC Advantage
+          </div>
+          <h3 class="gradient-text" style="margin-bottom:1rem; font-size:1.8rem;">⚡ CnC Circle Approach</h3>
+          <ul style="list-style:none; line-height:2.2; color:var(--text-main);">
+            <li><span style="color:var(--accent-green); font-weight:800;">✓</span> 100% Board-grounded against NCERT & state syllabus</li>
+            <li><span style="color:var(--accent-green); font-weight:800;">✓</span> Step-by-step rigorous logical derivation & solution steps</li>
+            <li><span style="color:var(--accent-green); font-weight:800;">✓</span> High-definition concept visualizers & vector diagrams</li>
+            <li><span style="color:var(--accent-green); font-weight:800;">✓</span> 1-Click test paper generation with printable marking schemes</li>
+            <li><span style="color:var(--accent-green); font-weight:800;">✓</span> Formula cheat-sheets & mistake prevention alerts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: "Explainer Storyboard" -->
+  <section class="storyboard-section" id="storyboard">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <div class="section-tag">Learning Journey</div>
+        <h2 class="section-title">The Student Explainer Storyboard</h2>
+        <p class="section-subtitle">Transformative Learning Journey: 4 Steps from conceptual doubt to 100% board exam mastery.</p>
+      </div>
+
+      <div style="margin-top: 2.5rem; margin-bottom: 3rem; text-align: center; display: flex; justify-content: center;">
+        <img src="assets/explainer_storyboard.png" alt="Transformative Learning Journey: 4 Steps to Exam Mastery" class="interactive-image" style="max-width:820px; width:100%; border-radius:var(--radius-xl); border:1.5px solid var(--primary); box-shadow:0 20px 60px rgba(99, 102, 241, 0.35), 0 0 30px var(--secondary-glow);" />
+      </div>
+
+      <div class="storyboard-grid">
+        <div class="storyboard-step interactive-card">
+          <div class="step-num">01</div>
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--primary);">1. Student Doubt Input</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            A student inputs a doubt via text, tablet, or topic selector—the AI instantly captures and parses the core question.
+          </p>
+        </div>
+
+        <div class="storyboard-step interactive-card">
+          <div class="step-num">02</div>
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--secondary);">2. AI Concept Deconstruction</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            The complex topic is deconstructed into fundamental textbook formulas, physiological/physical phases, and key sub-concepts.
+          </p>
+        </div>
+
+        <div class="storyboard-step interactive-card">
+          <div class="step-num">03</div>
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-purple);">3. 3D Diagram Visualization</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            Interactive, highly detailed 3D models and annotated vector diagrams lock in intuitive spatial and mechanistic clarity.
+          </p>
+        </div>
+
+        <div class="storyboard-step interactive-card">
+          <div class="step-num">04</div>
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-green);">4. Perfect Board Answer Sheet</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            Delivers a high-scoring, step-by-step model exam answer sheet formatted strictly according to board marking schemes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: "The CnC Knowledge Pipeline" (360-Degree 3D Flip on Mouseover) -->
+  <section class="pipeline-section" id="pipeline">
+    <div class="container pipeline-grid">
+      <div>
+        <div class="section-tag">AI Architecture</div>
+        <h2 class="section-title">The CnC Knowledge Pipeline</h2>
+        <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:2rem; line-height:1.6;">
+          Behind CnC Circle is a proprietary multi-layer AI pipeline designed to eliminate hallucinations and guarantee strict board syllabus compliance.
+        </p>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="interactive-card" style="background:var(--bg-card); border:1px solid var(--bg-card-border); padding:1.25rem; border-radius:var(--radius-md); display:flex; gap:1rem; align-items:center;">
+            <div style="width:40px; height:40px; border-radius:10px; background:rgba(99,102,241,0.2); color:var(--primary); font-weight:800; display:flex; align-items:center; justify-content:center;">1</div>
+            <div>
+              <h4 style="font-size:1.05rem;">Syllabus Grounding Layer</h4>
+              <p style="color:var(--text-muted); font-size:0.88rem;">Indexes official CBSE, ICSE & State Board textbooks and blueprints.</p>
+            </div>
+          </div>
+
+          <div class="interactive-card" style="background:var(--bg-card); border:1px solid var(--bg-card-border); padding:1.25rem; border-radius:var(--radius-md); display:flex; gap:1rem; align-items:center;">
+            <div style="width:40px; height:40px; border-radius:10px; background:rgba(6,182,212,0.2); color:var(--secondary); font-weight:800; display:flex; align-items:center; justify-content:center;">2</div>
+            <div>
+              <h4 style="font-size:1.05rem;">Formula & Symbol Indexing</h4>
+              <p style="color:var(--text-muted); font-size:0.88rem;">Automatically formats LaTeX formulas, chemical equations, and units.</p>
+            </div>
+          </div>
+
+          <div class="interactive-card" style="background:var(--bg-card); border:1px solid var(--bg-card-border); padding:1.25rem; border-radius:var(--radius-md); display:flex; gap:1rem; align-items:center;">
+            <div style="width:40px; height:40px; border-radius:10px; background:rgba(139,92,246,0.2); color:var(--accent-purple); font-weight:800; display:flex; align-items:center; justify-content:center;">3</div>
+            <div>
+              <h4 style="font-size:1.05rem;">Step-by-Step Rigor Auditor</h4>
+              <p style="color:var(--text-muted); font-size:0.88rem;">Verifies every intermediate algebraic and numerical step before presentation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Knowledge Pipeline Cube (4 Visible Sides/Stages + 3D Lids) -->
+      <div>
+        <div class="cube-viewport" id="cubeViewport" title="Move mouse left/right or drag to rotate 3D box">
+          <div class="cube-3d" id="pipelineCube">
+            <!-- 3D Box Top & Bottom Faces -->
+            <div class="cube-face-top"></div>
+            <div class="cube-face-bottom"></div>
+
+            <!-- Face 1: Front (Stage 1) -->
+            <div class="cube-face cube-face-front">
+              <div class="cube-face-header">
+                <span class="cube-stage-tag">Stage 1 • Grounding</span>
+                <span style="font-size:0.8rem; font-weight:700; color:var(--primary);">Face 1 / 4</span>
+              </div>
+              <div class="cube-face-body">
+                <h3 style="font-size:1.25rem; margin-bottom:0.5rem; color:var(--text-main);">Multi-Board Ingestion</h3>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem;">
+                  Ingests and cross-indexes official NCERT, CBSE, ICSE, and State Board textbooks into vector embeddings.
+                </p>
+                <img src="assets/knowledge_pipeline_3d.png" alt="Knowledge Pipeline Ingestion" style="width:100%; height:150px; object-fit:cover; border-radius:12px; border:1px solid var(--bg-card-border);" />
+              </div>
+              <div class="cube-face-footer">
+                <span>🛡️ 99.6% NCERT Grounded</span>
+                <span style="color:var(--secondary); font-weight:700;">Spin ➔</span>
+              </div>
+            </div>
+
+            <!-- Face 2: Right (Stage 2) -->
+            <div class="cube-face cube-face-right">
+              <div class="cube-face-header">
+                <span class="cube-stage-tag" style="color:var(--accent-purple); background:rgba(139,92,246,0.15);">Stage 2 • Indexing</span>
+                <span style="font-size:0.8rem; font-weight:700; color:var(--primary);">Face 2 / 4</span>
+              </div>
+              <div class="cube-face-body">
+                <h3 style="font-size:1.25rem; margin-bottom:0.5rem; color:var(--text-main);">Neural Formula Tagging</h3>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem;">
+                  Parses complex LaTeX formulas, SI units, and chemical equations with automated symbol linking.
+                </p>
+                <div class="cube-code-box">
+                  <span class="formula-chip">E = F / q₀</span>
+                  <span class="formula-chip">Φ = ∮ E · dA</span>
+                  <span class="formula-chip">E_cell = E° - (RT/nF)lnQ</span>
+                </div>
+                <p style="color:var(--text-subtle); font-size:0.8rem; font-weight:600;">✓ 15,000+ Verified Formula Nodes Indexed</p>
+              </div>
+              <div class="cube-face-footer">
+                <span>⚡ Real-Time LaTeX</span>
+                <span style="color:var(--secondary); font-weight:700;">Spin ➔</span>
+              </div>
+            </div>
+
+            <!-- Face 3: Back (Stage 3) -->
+            <div class="cube-face cube-face-back">
+              <div class="cube-face-header">
+                <span class="cube-stage-tag" style="color:var(--accent-gold); background:rgba(245,158,11,0.15);">Stage 3 • Visualizer</span>
+                <span style="font-size:0.8rem; font-weight:700; color:var(--primary);">Face 3 / 4</span>
+              </div>
+              <div class="cube-face-body">
+                <h3 style="font-size:1.25rem; margin-bottom:0.5rem; color:var(--text-main);">3D Concept Vector Mapping</h3>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem;">
+                  Generates interactive vector diagrams for electric field lines, ray optics, and molecular orbital structures.
+                </p>
+                <img src="assets/question_bank_preview.png" alt="3D Vector Diagram Preview" style="width:100%; height:150px; object-fit:cover; border-radius:12px; border:1px solid var(--bg-card-border);" />
+              </div>
+              <div class="cube-face-footer">
+                <span>📐 Spatial Geometry & Ray Optics</span>
+                <span style="color:var(--secondary); font-weight:700;">Spin ➔</span>
+              </div>
+            </div>
+
+            <!-- Face 4: Left (Stage 4) -->
+            <div class="cube-face cube-face-left">
+              <div class="cube-face-header">
+                <span class="cube-stage-tag" style="color:var(--accent-green); background:rgba(16,185,129,0.15);">Stage 4 • Auditor</span>
+                <span style="font-size:0.8rem; font-weight:700; color:var(--primary);">Face 4 / 4</span>
+              </div>
+              <div class="cube-face-body">
+                <h3 style="font-size:1.25rem; margin-bottom:0.5rem; color:var(--text-main);">Step-by-Step Mark Scheme Rigor</h3>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem;">
+                  Every step is verified against official board marking schemes to ensure maximum answer-sheet score.
+                </p>
+                <div class="terminal-status-box" style="padding:0.65rem 0.9rem; margin-bottom:0.5rem; font-size:0.8rem;">
+                  [VERIFIED] Step 1: Formula statement (+1 mark)<br>
+                  [VERIFIED] Step 2: Substitution with SI (+1 mark)<br>
+                  [VERIFIED] Step 3: Exact final value (+1 mark)
+                </div>
+              </div>
+              <div class="cube-face-footer">
+                <span>🎯 100% Exam Scheme Verified</span>
+                <span style="color:var(--secondary); font-weight:700;">Spin ➔</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick 3D Box Spin Controls -->
+        <div class="cube-nav-controls">
+          <button class="cube-nav-btn" id="cubeBtnPrev" title="Rotate Left">◀ Rotate Left</button>
+          <button class="cube-nav-btn active" data-face="0">1. Ingestion</button>
+          <button class="cube-nav-btn" data-face="90">2. Formulas</button>
+          <button class="cube-nav-btn" data-face="180">3. Visualizer</button>
+          <button class="cube-nav-btn" data-face="270">4. Mark Scheme</button>
+          <button class="cube-nav-btn" id="cubeBtnNext" title="Rotate Right">Rotate Right ▶</button>
+        </div>
+        <div style="text-align:center; margin-top:0.75rem; font-size:0.85rem; color:var(--secondary); font-weight:700;">
+          ✨ Hover & move mouse left ↔ right across the box to spin 360° in 3D
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Interactive "Product Demo" Section -->
+  <section class="product-demo-section" id="product-demo">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Interactive Preview</div>
+        <h2 class="section-title">Explore the Product Demo</h2>
+        <p class="section-subtitle">Experience the full suite of tools available to students, educators, and institution admins inside CnC Circle.</p>
+      </div>
+
+      <div class="demo-nav-tabs">
+        <button class="demo-nav-btn active" data-demo="demoTestMaker">📄 Test Paper Creator</button>
+        <button class="demo-nav-btn" data-demo="demoGrounding">🛡️ Board Grounding Auditor</button>
+        <button class="demo-nav-btn" data-demo="demoDiagrams">📐 Concept Diagram Viewer</button>
+        <button class="demo-nav-btn" data-demo="demoPdf">📥 PDF Export Engine</button>
+      </div>
+
+      <div style="background:var(--bg-card); border:1px solid var(--bg-card-border); border-radius:var(--radius-xl); padding:2rem; box-shadow:var(--shadow-lg);">
+        <!-- Demo Panel 1: Test Paper Creator -->
+        <div class="demo-panel active" id="demoTestMaker">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;">
+            <div>
+              <span style="color:var(--primary); font-weight:700; font-size:0.85rem; text-transform:uppercase;">Educator Suite</span>
+              <h3 style="font-size:1.8rem; margin:0.5rem 0 1rem;">Automated Test Paper & Answer Key Generator</h3>
+              <p style="color:var(--text-muted); margin-bottom:1.5rem;">
+                Select difficulty distribution (30% Easy, 50% Medium, 20% Hard), choose target board syllabus, and click Generate.
+              </p>
+              <div class="terminal-status-box">
+                [STATUS] Generated 25 Board-Aligned Questions<br />
+                [STATUS] Marking Scheme Attached with Step Marks<br />
+                [STATUS] PDF Ready for Print Export
+              </div>
+              <a href="register.html" class="btn btn-primary">Try Test Creator Free →</a>
+            </div>
+            <div>
+              <img src="assets/product_demo_interface.png" alt="Product Demo Test Creator Interface" class="interactive-image" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--bg-card-border);" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Panel 2: Board Grounding Auditor -->
+        <div class="demo-panel" id="demoGrounding">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;">
+            <div>
+              <span style="color:var(--secondary); font-weight:700; font-size:0.85rem; text-transform:uppercase;">Accuracy Layer</span>
+              <h3 style="font-size:1.8rem; margin:0.5rem 0 1rem;">Real-Time Syllabus Compliance Inspector</h3>
+              <p style="color:var(--text-muted); margin-bottom:1.5rem;">
+                Ensures every generated question maps directly to active NCERT chapters and official sample paper marking schemes.
+              </p>
+              <a href="register.html" class="btn btn-primary">Inspect Syllabus Grounding →</a>
+            </div>
+            <div>
+              <img src="assets/hero_ai_learning.png" alt="Grounding Inspector Preview" class="interactive-image" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--bg-card-border);" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Panel 3: Concept Diagram Viewer -->
+        <div class="demo-panel" id="demoDiagrams">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;">
+            <div>
+              <span style="color:var(--accent-purple); font-weight:700; font-size:0.85rem; text-transform:uppercase;">Visual Learning</span>
+              <h3 style="font-size:1.8rem; margin:0.5rem 0 1rem;">Vector Diagrams & Circuit Mechanism Visualizer</h3>
+              <p style="color:var(--text-muted); margin-bottom:1.5rem;">
+                High-definition vector illustrations for dipole electric fields, ray optics diagrams, organic mechanisms, and geometry.
+              </p>
+              <a href="register.html" class="btn btn-primary">View Diagram Gallery →</a>
+            </div>
+            <div>
+              <img src="assets/student_learning_app.png" alt="Diagram Viewer Interface" class="interactive-image" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--bg-card-border);" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Panel 4: PDF Export Engine -->
+        <div class="demo-panel" id="demoPdf">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;">
+            <div>
+              <span style="color:var(--accent-green); font-weight:700; font-size:0.85rem; text-transform:uppercase;">Institution Export</span>
+              <h3 style="font-size:1.8rem; margin:0.5rem 0 1rem;">Custom Branded PDF Export Engine</h3>
+              <p style="color:var(--text-muted); margin-bottom:1.5rem;">
+                Add your school or coaching institute's logo, watermark, and custom instructions. Export print-ready PDFs in one click.
+              </p>
+              <a href="register.html" class="btn btn-primary">Generate Sample PDF →</a>
+            </div>
+            <div>
+              <img src="assets/question_bank_preview.png" alt="PDF Export Engine Preview" class="interactive-image" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--bg-card-border);" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section with Animated Toggle Switch -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Simple & Transparent</div>
+        <h2 class="section-title">Plans Designed for Everyone</h2>
+        <p class="section-subtitle">Choose the plan that fits your study circle or coaching institute. Upgrade or cancel anytime.</p>
+      </div>
+
+      <!-- Animated Sliding Toggle Switch (Default ON: Annual Plan) -->
+      <div class="pricing-switch">
+        <span class="switch-label">Monthly Billing</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="pricingToggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="switch-label" style="color:var(--primary); font-weight:800;">Annual Billing</span>
+        <span class="discount-badge">SAVE 20%</span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Student Free Plan -->
+        <div class="glass-card price-card interactive-card">
+          <div class="price-header">
+            <h3>Student Starter</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">Perfect for daily self-study & homework</p>
+            <div class="price-amount">₹0</div>
+            <div class="price-period">Free Forever</div>
+          </div>
+          <ul class="price-features">
+            <li><span>✓</span> 50 AI Questions / month</li>
+            <li><span>✓</span> Standard step-by-step solutions</li>
+            <li><span>✓</span> Access to Physics & Maths formulas</li>
+            <li><span>✓</span> Community doubt forum</li>
+          </ul>
+          <a href="register.html" class="btn btn-secondary" style="width:100%;">Create Free Account</a>
+        </div>
+
+        <!-- Pro Educator Plan (Popular) -->
+        <div class="glass-card price-card popular interactive-card">
+          <div class="popular-badge">Most Popular</div>
+          <div class="price-header">
+            <h3>Pro Study Circle</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">For active students, tutors & educators</p>
+            <div class="price-amount price-val" data-monthly="499" data-annual="399">₹399</div>
+            <div class="price-period">per month / billed annually</div>
+          </div>
+          <ul class="price-features">
+            <li><span>✓</span> Unlimited AI Question Generation</li>
+            <li><span>✓</span> PDF Test Paper & Marking Scheme Generator</li>
+            <li><span>✓</span> Bulk Question Import & Export</li>
+            <li><span>✓</span> High-Res Concept Visualizer</li>
+            <li><span>✓</span> Priority AI doubt resolution</li>
+          </ul>
+          <a href="register.html" class="btn btn-primary" style="width:100%;">Get Pro Access →</a>
+        </div>
+
+        <!-- Institution Plan -->
+        <div class="glass-card price-card interactive-card">
+          <div class="price-header">
+            <h3>Institution & School</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">For coaching centers, schools & academies</p>
+            <div class="price-amount price-val" data-monthly="2499" data-annual="1999">₹1,999</div>
+            <div class="price-period">per month / up to 10 teachers</div>
+          </div>
+          <ul class="price-features">
+            <li><span>✓</span> Everything in Pro Plan</li>
+            <li><span>✓</span> Up to 500 active student accounts</li>
+            <li><span>✓</span> School co-branding on test papers</li>
+            <li><span>✓</span> Centralized question repository</li>
+            <li><span>✓</span> Dedicated account manager & SLA</li>
+          </ul>
+          <a href="register.html" class="btn btn-secondary" style="width:100%;">Contact Institution Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>What makes CnC Circle different from generic search engines?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Generic search engines return unverified web snippets. CnC Circle uses a 100% textbook-grounded AI pipeline trained on NCERT and board blueprints to output rigorous step-by-step solutions formatted for maximum board marks.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can teachers import their own question papers into CnC Circle?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            Yes! CnC Circle supports bulk import of Word documents, PDFs, and scanned text. The AI automatically parses, categorizes, and labels questions by board, class, subject, and chapter.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Which subjects and classes are covered?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-answer">
+            We provide full chapter coverage for Physics, Chemistry, and Mathematics across Classes 9, 10, 11, and 12 for CBSE, ICSE, and major State Boards.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section style="padding:5rem 0; background:linear-gradient(135deg, rgba(99,102,241,0.2), rgba(6,182,212,0.2)); border-top:1px solid var(--bg-card-border);">
+    <div class="container" style="text-align:center;">
+      <h2 style="font-size:3rem; margin-bottom:1rem;">Ready to Join the CnC Circle?</h2>
+      <p style="color:var(--text-muted); max-width:600px; margin:0 auto 2rem; font-size:1.15rem;">
+        Join over 50,000+ students and educators mastering board exams with Concepts & Clarity.
+      </p>
+      <a href="register.html" class="btn btn-primary btn-lg" id="ctaFooterBtn">Create Your Free CnC Account Now →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="logo-badge">CnC</div>
+          <div class="brand-text-container">
+            <span class="brand-title">CnC <span style="color:var(--primary);">Circle</span></span>
+            <span class="brand-tagline">Concepts & Clarity AI</span>
+          </div>
+        </a>
+        <p>Next-generation AI education and board exam question-bank platform designed for Indian students, teachers, and institutions.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#demo">AI Synthesizer</a></li>
+          <li><a href="#pipeline">Knowledge Pipeline</a></li>
+          <li><a href="#product-demo">Product Demo</a></li>
+          <li><a href="#pricing">Pricing Plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Curriculum</h4>
+        <ul>
+          <li><a href="#">CBSE Class 12 Physics</a></li>
+          <li><a href="#">CBSE Class 12 Chemistry</a></li>
+          <li><a href="#">Class 10 Mathematics</a></li>
+          <li><a href="#">ICSE Board Bank</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Support & Legal</h4>
+        <ul>
+          <li><a href="register.html">Help Center & FAQ</a></li>
+          <li><a href="register.html">Student Portal</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 CnC Circle. Concepts & Clarity in Education. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Draggable AI Chat Support Launcher (Aura AI) -->
+  <div class="chat-launcher-btn" id="chatLauncherBtn" role="button" aria-label="Open Aura AI Chat Support" title="Click to chat • Drag anywhere on screen">
+    <div class="chat-launcher-drag-grip" title="Drag anywhere on screen">⋮⋮</div>
+    <div style="position:relative;">
+      <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-launcher-avatar" />
+      <div class="chat-launcher-status-dot"></div>
+    </div>
+    <div class="chat-launcher-text">
+      <div class="chat-launcher-title">Aura AI <span>✨</span></div>
+      <div class="chat-launcher-subtitle">Ask Study Doubts</div>
+    </div>
+  </div>
+
+  <!-- Draggable Chat Window Popup -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header" id="chatDragHeader" title="Drag to move chat window">
+      <div class="chat-header-info">
+        <span class="chat-drag-grip-header" title="Drag to move">⋮⋮</span>
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI Assistant" class="chat-header-avatar" />
+        <div>
+          <div class="chat-header-title">Aura AI</div>
+          <div class="chat-header-subtitle"><span class="pulse-dot" style="width:6px; height:6px;"></span> Online • CnC Assistant</div>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button class="chat-btn-icon" id="chatMinimizeBtn" title="Minimize">🗕</button>
+        <button class="chat-btn-icon" id="chatCloseBtn" title="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatMessages">
+      <div class="chat-msg bot">
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-msg-avatar" />
+        <div class="chat-bubble">
+          👋 Hi! I'm <strong>Aura</strong>, your CnC Study Buddy. Ask me any quick doubt about CBSE/ICSE formulas, test paper generation, or platform features!
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Suggestion Chips -->
+    <div class="chat-suggestions">
+      <button class="chat-chip" data-query="How to generate a test paper?">📄 Test Creator</button>
+      <button class="chat-chip" data-query="Give me Class 12 Physics Electric Field formula">⚡ E-Field Formula</button>
+      <button class="chat-chip" data-query="What is the pricing and discount?">💎 Pricing</button>
+      <button class="chat-chip" data-query="How does NCERT textbook grounding work?">🛡️ Grounding</button>
+    </div>
+
+    <form class="chat-footer" id="chatForm">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask Aura a quick question..." autocomplete="off" />
+      <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Send Message">➤</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Pro Study Portal & Workspace | CnC Circle</title>
+  <meta name="description" content="Personalized Pro Dashboard for CnC Circle members with textbook-grounded material generators, test paper creators, and mistake diagnostics." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body class="dash-page-body">
+
+  <!-- Pro Member Sticky Navbar -->
+  <header class="dash-header">
+    <div class="container dash-nav-container">
+      <!-- Brand Logo -->
+      <a href="dashboard.html" class="brand-logo">
+        <div class="logo-badge">CnC</div>
+        <div class="brand-text-container">
+          <span class="brand-title">CnC <span style="color:var(--primary);">Circle</span></span>
+          <span class="brand-tagline">Pro Member Studio</span>
+        </div>
+      </a>
+
+      <!-- Right Nav Actions: User Chip with Last Login, Theme, Public Site, Logout -->
+      <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+        <!-- Logged-in User Chip with Last Login Timestamp -->
+        <div class="dash-user-chip">
+          <div class="dash-user-avatar" id="dashUserAvatar">U</div>
+          <div class="dash-user-details">
+            <div class="dash-user-name">
+              <span id="dashUserName">Devansh</span>
+              <span class="dash-pro-tag">PRO</span>
+            </div>
+            <div class="dash-last-login" id="dashLastLoginTime">
+              Last Login: <strong>Today, 10:55 PM</strong>
+            </div>
+          </div>
+        </div>
+
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">☀️</button>
+        <a href="index.html" class="btn btn-secondary btn-sm" title="View Public Landing Page">🌐 Public Site</a>
+        <button class="btn-logout" id="dashLogoutBtn" title="Log Out of CnC Circle">
+          <span>🚪</span> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Pro Workspace Container -->
+  <main class="container" style="flex:1; padding-bottom:3rem;">
+    
+    <!-- Pro Hero Banner -->
+    <div class="dash-hero-card">
+      <div class="dash-hero-content">
+        <div class="dash-hero-text">
+          <h1>
+            <span>👋</span> Welcome back, <span id="dashHeroName" style="color:var(--primary);">Devansh</span>!
+          </h1>
+          <p style="color:var(--text-muted); font-size:1rem; max-width:650px;">
+            Your custom Pro AI study suite is active. Generate textbook-grounded chapter cheat sheets, build full board test papers, and diagnose mistake steps.
+          </p>
+          <div class="dash-hero-meta">
+            <span class="dash-meta-pill" id="dashHeroRole">🎓 Student Workspace</span>
+            <span class="dash-meta-pill" id="dashHeroClass">📚 Class 12</span>
+            <span class="dash-meta-pill" id="dashHeroBoard">🛡️ CBSE Track</span>
+            <span class="dash-meta-pill" style="border-color:var(--accent-green); color:var(--accent-green);">
+              <span class="pulse-dot" style="width:6px; height:6px;"></span> 💎 Pro Plan Active (Full Access)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Navigation Tabs -->
+    <div class="dash-tabs-bar">
+      <button class="dash-tab-item active" data-tab="tabMaterialStudio">
+        <span>📚</span> Study Material Studio
+      </button>
+      <button class="dash-tab-item" data-tab="tabTestBuilder">
+        <span>📄</span> Test Paper & Mock Builder
+      </button>
+      <button class="dash-tab-item" data-tab="tabMistakeDiagnostics">
+        <span>🔍</span> AI Mistake Diagnostics
+      </button>
+      <button class="dash-tab-item" data-tab="tabFormulaVault">
+        <span>⚡</span> Formula & Identity Vault
+      </button>
+      <button class="dash-tab-item" data-tab="tabAnalytics">
+        <span>📊</span> Syllabus Progress
+      </button>
+    </div>
+
+    <!-- TAB 1: STUDY MATERIAL STUDIO (Group Box) -->
+    <div class="dash-panel active" id="tabMaterialStudio">
+      <div class="material-studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            <h2 style="font-size:1.5rem; margin-bottom:0.25rem;">📚 Class & Subject Material Studio</h2>
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Generate, customize, and export verified chapter formulas, step-by-step solved sets, and revision flashcards.
+            </p>
+          </div>
+          <span class="dash-pro-tag" style="padding:4px 10px; font-size:0.75rem;">💎 Paid Pro Engine</span>
+        </div>
+
+        <!-- Material Filter Control Row -->
+        <div class="material-control-row">
+          <div>
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">
+              SELECT SUBJECT
+            </label>
+            <select class="form-input" id="matSubject">
+              <option value="physics" selected>Physics</option>
+              <option value="chemistry">Chemistry</option>
+              <option value="mathematics">Mathematics</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">
+              TARGET CLASS
+            </label>
+            <select class="form-input" id="matClass">
+              <option value="12" selected>Class 12</option>
+              <option value="11">Class 11</option>
+              <option value="10">Class 10</option>
+              <option value="9">Class 9</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">
+              SELECT CHAPTER
+            </label>
+            <select class="form-input" id="matChapter">
+              <!-- Populated dynamically by dashboard.js -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Material Type Selector Pills -->
+        <div style="margin-bottom:0.5rem; font-size:0.82rem; font-weight:700; color:var(--text-muted);">
+          CHOOSE MATERIAL FORMAT:
+        </div>
+        <div class="material-type-selector">
+          <button type="button" class="material-type-pill active" data-type="cheatSheet">
+            <span>📚</span> Chapter Formula & Cheat Sheet
+          </button>
+          <button type="button" class="material-type-pill" data-type="solvedProblems">
+            <span>📝</span> Solved Board Problem Sets
+          </button>
+          <button type="button" class="material-type-pill" data-type="flashcards">
+            <span>⚡</span> Rapid Recall Flashcards
+          </button>
+          <button type="button" class="btn btn-primary" id="btnGenerateMaterial" style="margin-left:auto;">
+            ⚡ Synthesize Study Material
+          </button>
+        </div>
+
+        <!-- Material Output Viewer -->
+        <div class="material-viewer" id="materialOutputViewer">
+          <!-- Populated dynamically by dashboard.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: AI TEST PAPER & MOCK BUILDER -->
+    <div class="dash-panel" id="tabTestBuilder">
+      <div class="material-studio-card">
+        <div style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.5rem; margin-bottom:0.25rem;">📄 Board Exam Test Paper & Mock Creator</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            Construct complete board pattern question papers with Section A-D questions, marks breakdown, and printable teacher marking schemes.
+          </p>
+        </div>
+
+        <div class="test-paper-studio-grid">
+          <!-- Parameter Controls -->
+          <div class="test-params-card">
+            <h3 style="font-size:1.1rem; margin-bottom:1rem; color:var(--text-main);">⚙️ Exam Parameters</h3>
+            
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:flex; justify-content:space-between; margin-bottom:0.3rem;">
+                <span>TEST TITLE</span>
+                <span style="font-size:0.75rem; color:var(--secondary); font-weight:600;">⚡ Auto-Generated from Subject & Class</span>
+              </label>
+              <input type="text" class="form-input" id="testPaperTitle" placeholder="Auto-generated from Subject & Class..." />
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">SUBJECT</label>
+              <select class="form-input" id="testPaperSubject">
+                <option value="Physics" selected>Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Mathematics">Mathematics</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">CLASS</label>
+              <select class="form-input" id="testPaperClass">
+                <option value="12" selected>Class 12</option>
+                <option value="11">Class 11</option>
+                <option value="10">Class 10</option>
+                <option value="9">Class 9</option>
+              </select>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1rem;">
+              <div>
+                <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">DURATION</label>
+                <select class="form-input" id="testPaperDuration">
+                  <option value="1 Hour">1 Hour</option>
+                  <option value="2 Hours">2 Hours</option>
+                  <option value="3 Hours" selected>3 Hours</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">TOTAL MARKS</label>
+                <select class="form-input" id="testPaperMarks">
+                  <option value="25">25 Marks</option>
+                  <option value="40">40 Marks</option>
+                  <option value="70" selected>70 Marks</option>
+                  <option value="80">80 Marks</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom:1.5rem;">
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; font-weight:600; cursor:pointer;">
+                <input type="checkbox" id="chkIncludeRubric" checked style="accent-color:var(--primary);" />
+                Include Official Step Marking Rubrics
+              </label>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="btnBuildTestPaper" style="width:100%; margin-bottom:0.75rem;">
+              ⚡ Generate Board Paper
+            </button>
+            <button type="button" class="btn btn-secondary" id="btnPrintTestPaper" style="width:100%;">
+              🖨️ Print / Save as PDF
+            </button>
+          </div>
+
+          <!-- Printable Paper Preview Sheet & Pagination Wrapper -->
+          <div style="display:flex; flex-direction:column; gap:1rem; width:100%; min-width:0;">
+            
+            <!-- Top Pagination & Action Bar -->
+            <div class="a4-pagination-bar" id="paperPaginationBar" style="display:none;">
+              <div class="a4-view-mode-toggle">
+                <button type="button" class="a4-mode-btn active" id="btnModeSinglePage" title="View one page at a time with page flip">📄 Single Page (Flip)</button>
+                <button type="button" class="a4-mode-btn" id="btnModeAllPages" title="View all pages stacked for continuous reading / printing">📑 Show All Pages</button>
+              </div>
+
+              <div class="a4-nav-controls">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnPaperPrevPage" disabled>
+                  ← Previous Page
+                </button>
+                <div class="a4-page-badge" id="paperPageIndicator">
+                  Page <strong id="paperCurrentPageNum">1</strong> / <span id="paperTotalPagesNum">1</span>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnPaperNextPage" disabled>
+                  Next Page →
+                </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn btn-primary btn-sm" id="btnPrintTopBtn">
+                  🖨️ Print / PDF
+                </button>
+              </div>
+            </div>
+
+            <!-- A4 Sheets Container -->
+            <div class="a4-paper-wrapper" id="testPaperSheetPreview">
+              <div style="text-align:center; padding:4rem 1rem; color:var(--text-muted); background:var(--bg-card); border:1px dashed var(--bg-card-border); border-radius:var(--radius-lg); width:100%;">
+                <div style="font-size:2.5rem; margin-bottom:0.75rem;">📋</div>
+                <h4 style="font-size:1.15rem; margin-bottom:0.5rem; color:var(--text-main);">Configure Your Test Blueprint</h4>
+                <p style="font-size:0.9rem; max-width:460px; margin:0 auto;">
+                  Select Subject, Class, and Target Marks on the left, then click <strong>"Generate Board Paper"</strong> to synthesize standard A4 paginated question sheets.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bottom Pagination Bar -->
+            <div class="a4-pagination-bar" id="paperPaginationBarBottom" style="display:none; justify-content:center;">
+              <div class="a4-nav-controls">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnPaperPrevPageBottom" disabled>
+                  ← Previous Page
+                </button>
+                <div class="a4-page-badge" id="paperPageIndicatorBottom">
+                  Page <strong id="paperCurrentPageNumBottom">1</strong> / <span id="paperTotalPagesNumBottom">1</span>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" id="btnPaperNextPageBottom" disabled>
+                  Next Page →
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: AI MISTAKE DIAGNOSTIC SOLVER -->
+    <div class="dash-panel" id="tabMistakeDiagnostics">
+      <div class="material-studio-card">
+        <div style="margin-bottom:1.5rem;">
+          <h2 style="font-size:1.5rem; margin-bottom:0.25rem;">🔍 AI Step-by-Step Mistake Diagnostic Engine</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">
+            Test your intermediate calculations and derivations. The AI scans every equation line to pinpoint sign mistakes, unit errors, or formula mismatches.
+          </p>
+        </div>
+
+        <div class="diagnostic-container">
+          <!-- Step Input Panel -->
+          <div style="background:var(--bg-dark); border:1px solid var(--bg-card-border); border-radius:var(--radius-lg); padding:1.5rem;">
+            <h3 style="font-size:1.1rem; margin-bottom:0.75rem;">✏️ Enter Your Problem & Calculation Steps</h3>
+            
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">SAMPLE PROBLEM</label>
+              <select class="form-input" id="diagSampleSelect">
+                <option value="1">Physics: Point Charge Field Calculation (Class 12)</option>
+                <option value="2">Chemistry: Elevation in Boiling Point Calculation (Class 12)</option>
+                <option value="3">Maths: Definite Integration by Parts (Class 12)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:1rem;">
+              <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.3rem;">YOUR SOLUTION STEPS</label>
+              <textarea class="form-input" rows="6" style="font-family:monospace; font-size:0.88rem;" id="diagStepsInput">Step 1: Formula E = 1/(4πε₀) · q / r²
+Step 2: q = 4 µC = 4×10⁻⁶ C, r = 20 cm = 0.2 m
+Step 3: E = (9×10⁹ × 4×10⁻⁶) / (0.4)
+Step 4: E = 36000 / 0.4 = 90000 N/C</textarea>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="btnAnalyzeSteps" style="width:100%;">
+              🔍 Run AI Line-by-Line Error Diagnostic
+            </button>
+          </div>
+
+          <!-- Diagnostic Results Output -->
+          <div style="background:var(--bg-dark); border:1px solid var(--bg-card-border); border-radius:var(--radius-lg); padding:1.5rem;" id="diagnosticResults">
+            <h3 style="font-size:1.1rem; margin-bottom:1rem;">📊 Diagnostic Report</h3>
+            <div style="color:var(--text-muted); font-size:0.9rem; text-align:center; padding:2rem 0;">
+              Click <strong>"Run AI Line-by-Line Error Diagnostic"</strong> to identify exact calculation errors.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: FORMULA & IDENTITY VAULT -->
+    <div class="dash-panel" id="tabFormulaVault">
+      <div class="material-studio-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <h2 style="font-size:1.5rem; margin-bottom:0.25rem;">⚡ Formula & Identity Vault</h2>
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Searchable formula repository across Physics, Chemistry, and Mathematics with SI units and parameter breakdowns.
+            </p>
+          </div>
+          <input type="text" class="form-input" id="vaultSearchInput" placeholder="🔍 Search formulas (e.g. Coulomb, Ohm, Nernst, Integral)..." style="max-width:320px;" />
+        </div>
+
+        <div class="cheat-sheet-grid" id="vaultFormulaGrid">
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Physics • Class 12</span>
+            <div class="cheat-card-title">Coulomb's Law</div>
+            <div class="cheat-formula-box">F = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r^2}</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Force between two charges in vacuum. k = 9×10⁹ N·m²/C².</p>
+          </div>
+
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Physics • Class 12</span>
+            <div class="cheat-card-title">Gauss's Theorem</div>
+            <div class="cheat-formula-box">\oint \vec{E} \cdot d\vec{A} = \frac{Q_{\text{encl}}}{\varepsilon_0}</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Total electric flux through a closed surface.</p>
+          </div>
+
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Chemistry • Class 12</span>
+            <div class="cheat-card-title">Nernst Equation</div>
+            <div class="cheat-formula-box">E_{\text{cell}} = E^\circ_{\text{cell}} - \frac{0.0591}{n} \log Q</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Calculates non-standard electrochemical cell potential at 298 K.</p>
+          </div>
+
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Chemistry • Class 12</span>
+            <div class="cheat-card-title">Arrhenius Equation</div>
+            <div class="cheat-formula-box">k = A e^{-E_a / R T}</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Temperature dependence of chemical reaction rate constants.</p>
+          </div>
+
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Mathematics • Class 12</span>
+            <div class="cheat-card-title">Integration by Parts</div>
+            <div class="cheat-formula-box">\int u v \, dx = u \int v dx - \int (u' \int v dx) dx</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">ILATE priority for product integration.</p>
+          </div>
+
+          <div class="cheat-card vault-formula-card">
+            <span class="cnc-tag-badge">Mathematics • Class 12</span>
+            <div class="cheat-card-title">King's Symmetry Rule</div>
+            <div class="cheat-formula-box">\int_0^a f(x) \, dx = \int_0^a f(a-x) \, dx</div>
+            <p style="font-size:0.85rem; color:var(--text-muted);">Definite integral evaluation symmetry property.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: SYLLABUS COVERAGE & ANALYTICS -->
+    <div class="dash-panel" id="tabAnalytics">
+      <div class="analytics-cards-grid">
+        <div class="analytics-stat-card">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">PHYSICS SYLLABUS</span>
+          <div class="analytics-stat-val" style="color:var(--primary);">88%</div>
+          <span style="font-size:0.8rem; color:var(--accent-green); font-weight:600;">✓ 11 of 13 Chapters Mastered</span>
+          <div class="progress-track-pro"><div class="progress-bar-pro-fill" style="width:88%;"></div></div>
+        </div>
+
+        <div class="analytics-stat-card">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">CHEMISTRY SYLLABUS</span>
+          <div class="analytics-stat-val" style="color:var(--secondary);">82%</div>
+          <span style="font-size:0.8rem; color:var(--accent-green); font-weight:600;">✓ 8 of 10 Chapters Mastered</span>
+          <div class="progress-track-pro"><div class="progress-bar-pro-fill" style="width:82%;"></div></div>
+        </div>
+
+        <div class="analytics-stat-card">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">MATHEMATICS SYLLABUS</span>
+          <div class="analytics-stat-val" style="color:var(--accent-purple);">94%</div>
+          <span style="font-size:0.8rem; color:var(--accent-green); font-weight:600;">✓ 12 of 13 Chapters Mastered</span>
+          <div class="progress-track-pro"><div class="progress-bar-pro-fill" style="width:94%;"></div></div>
+        </div>
+
+        <div class="analytics-stat-card">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">PROJECTED BOARD SCORE</span>
+          <div class="analytics-stat-val" style="color:var(--accent-green);">97.5%</div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Based on 1,420 solved questions</span>
+          <div class="progress-track-pro"><div class="progress-bar-pro-fill" style="width:97.5%; background:var(--accent-green);"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Floating Draggable AI Chat Support Launcher (Aura AI) -->
+  <div class="chat-launcher-btn" id="chatLauncherBtn" role="button" aria-label="Open Aura AI Chat Support" title="Click to chat • Drag anywhere on screen">
+    <div class="chat-launcher-drag-grip" title="Drag anywhere on screen">⋮⋮</div>
+    <div style="position:relative;">
+      <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-launcher-avatar" />
+      <div class="chat-launcher-status-dot"></div>
+    </div>
+    <div class="chat-launcher-text">
+      <div class="chat-launcher-title">Aura AI <span>✨</span></div>
+      <div class="chat-launcher-subtitle">Ask Study Doubts</div>
+    </div>
+  </div>
+
+  <!-- Draggable Chat Window Popup -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header" id="chatDragHeader" title="Drag to move chat window">
+      <div class="chat-header-info">
+        <span class="chat-drag-grip-header" title="Drag to move">⋮⋮</span>
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI Assistant" class="chat-header-avatar" />
+        <div>
+          <div class="chat-header-title">Aura AI</div>
+          <div class="chat-header-subtitle"><span class="pulse-dot" style="width:6px; height:6px;"></span> Online • CnC Assistant</div>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button class="chat-btn-icon" id="chatMinimizeBtn" title="Minimize">🗕</button>
+        <button class="chat-btn-icon" id="chatCloseBtn" title="Close">✕</button>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatMessages">
+      <div class="chat-msg bot">
+        <img src="assets/ai_avatar_girl.png" alt="Aura AI" class="chat-msg-avatar" />
+        <div class="chat-bubble">
+          👋 Hi! I'm <strong>Aura</strong>, your Pro Study Companion. Ask me any doubt about formulas, test paper generation, or step derivations!
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Suggestion Chips -->
+    <div class="chat-suggestions">
+      <button class="chat-chip" data-query="How do I generate a full board test paper?">📄 Test Creator</button>
+      <button class="chat-chip" data-query="Explain Coulomb's Law and SI units">⚡ Coulomb's Law</button>
+      <button class="chat-chip" data-query="How does mistake diagnostic work?">🔍 Error Detector</button>
+    </div>
+
+    <form class="chat-footer" id="chatForm">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask Aura a quick question..." autocomplete="off" />
+      <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Send Message">➤</button>
+    </form>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
